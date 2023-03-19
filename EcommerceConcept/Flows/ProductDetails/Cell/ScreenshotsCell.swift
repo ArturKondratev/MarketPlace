@@ -12,12 +12,12 @@ class ScreenshotsCell: UICollectionViewCell {
     static let reuseId = "ScreenshotsCell"
     
     //MARK: - SubViews
-    private let screenshot: UIImageView = {
+    lazy var screenshot: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
-        imageView.layer.cornerRadius = 12
         imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 18
         return imageView
     }()
     

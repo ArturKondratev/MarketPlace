@@ -107,26 +107,14 @@ class DetailsMainViewController: UIViewController, DetailsMainViewDelegete {
     
     func addScreenShotVC() {
         self.addChildVC(screenShotVC)
-        screenShotVC.view.backgroundColor = .red
         NSLayoutConstraint.activate([
             screenShotVC.view.topAnchor.constraint(equalTo: detailView.scrollView.topAnchor, constant: 10),
             screenShotVC.view.leftAnchor.constraint(equalTo: detailView.scrollView.leftAnchor),
             screenShotVC.view.rightAnchor.constraint(equalTo: detailView.scrollView.rightAnchor),
             screenShotVC.view.widthAnchor.constraint(equalTo: detailView.scrollView.widthAnchor),
-            screenShotVC.view.heightAnchor.constraint(equalTo: detailView.scrollView.widthAnchor)
+            screenShotVC.view.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.width) //(equalTo: detailView.scrollView.widthAnchor)
         ])
     }
-//    func addScreenShotVC() {
-//        self.addChildVC(screenShotVC)
-//        screenShotVC.view.backgroundColor = .red
-//        NSLayoutConstraint.activate([
-//            screenShotVC.view.topAnchor.constraint(equalTo: detailView.scrollView.topAnchor, constant: 10),
-//            screenShotVC.view.leftAnchor.constraint(equalTo: detailView.scrollView.leftAnchor),
-//            screenShotVC.view.rightAnchor.constraint(equalTo: detailView.scrollView.rightAnchor),
-//            screenShotVC.view.heightAnchor.constraint(equalToConstant: 250),
-//            screenShotVC.view.widthAnchor.constraint(equalTo: detailView.scrollView.widthAnchor)
-//        ])
-//    }
     
     func addRatingVC() {
         self.addChildVC(ratingVC)
