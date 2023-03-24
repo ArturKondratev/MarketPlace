@@ -96,12 +96,12 @@ class FavoriteViewCell: UITableViewCell {
 
         NSLayoutConstraint.activate([
             deviceImage.centerYAnchor.constraint(equalTo: centerYAnchor),
-            deviceImage.leftAnchor.constraint(equalTo: leftAnchor),
+            deviceImage.leftAnchor.constraint(equalTo: leftAnchor, constant: 8),
             deviceImage.heightAnchor.constraint(equalToConstant: 80),
             deviceImage.widthAnchor.constraint(equalToConstant: 80),
             
             deleteFavoriteButton.centerYAnchor.constraint(equalTo: centerYAnchor),
-            deleteFavoriteButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
+            deleteFavoriteButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -8),
             deleteFavoriteButton.heightAnchor.constraint(equalToConstant: 40),
             deleteFavoriteButton.widthAnchor.constraint(equalToConstant: 40),
 

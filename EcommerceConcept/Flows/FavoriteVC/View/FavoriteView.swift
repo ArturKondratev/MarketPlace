@@ -33,7 +33,10 @@ class FavoriteView: UIView {
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.separatorStyle = .none
+        tableView.separatorStyle = .singleLine
+        tableView.separatorInset.left = 8
+        tableView.separatorInset.right = 8
+        tableView.separatorColor = .mainBackgroundColor
         tableView.showsHorizontalScrollIndicator = false
         tableView.showsVerticalScrollIndicator = false
         tableView.backgroundColor = .brandDarkBlue

@@ -13,8 +13,7 @@ class PersonalAccountVC: UIViewController {
     var personAccountView: PersonalAccountView {
         return self.view as! PersonalAccountView
     }
-    var avatarimage = UIImage(named: "person")
-    let imagePicker = UIImagePickerController()
+    var avatarimage: UIImage?
     
     //MARK: - LifeCycle
     override func loadView() {
@@ -27,10 +26,10 @@ class PersonalAccountVC: UIViewController {
         self.configureNavBar()
         personAccountView.tableView.delegate = self
         personAccountView.tableView.dataSource = self
-        imagePicker.delegate = self
     }
 }
 
+//MARK: - UITableViewDelegate, UITableViewDataSource
 extension PersonalAccountVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -62,7 +61,9 @@ extension PersonalAccountVC: UITableViewDelegate, UITableViewDataSource {
         guard
             let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: PersonalAccountHeaderView.identifier) as? PersonalAccountHeaderView else { return UITableViewHeaderFooterView() }
         header.delegate = self
-        header.personIcon.image = avatarimage
+        if avatarimage != nil {
+            header.personIcon.image = avatarimage
+        }
         return header
     }
     
@@ -77,18 +78,17 @@ extension PersonalAccountVC: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+//MARK: - PersonalAccountHeaderViewProtocol
 extension PersonalAccountVC: PersonalAccountHeaderViewProtocol {
-    
     func didTabAvatar(sender: UITapGestureRecognizer) {
-        let alert = UIAlertController(title: "Select image", message: nil, preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "Select image",
+                                      message: nil,
+                                      preferredStyle: .actionSheet)
         let actionPhoto = UIAlertAction(title: "Gallery", style: .default) { alert in
-            self.imagePicker.sourceType = .photoLibrary
-            self.imagePicker.allowsEditing = true
-            self.present(self.imagePicker, animated: true, completion: nil)
+            self.chooseImagePicker(source: .photoLibrary)
         }
         let actionCamera = UIAlertAction(title: "Camera", style: .default) { alert in
-            self.imagePicker.sourceType = .camera
-            self.present(self.imagePicker, animated: true, completion: nil)
+            self.chooseImagePicker(source: .camera)
         }
         let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.addAction(actionPhoto)
@@ -98,7 +98,17 @@ extension PersonalAccountVC: PersonalAccountHeaderViewProtocol {
     }
 }
 
+//MARK: - UIImagePickerControllerDelegate & UINavigationControllerDelegate
 extension PersonalAccountVC: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+    func chooseImagePicker(source: UIImagePickerController.SourceType) {
+        if UIImagePickerController.isSourceTypeAvailable(source) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.allowsEditing = true
+            imagePicker.sourceType = source
+            present(imagePicker, animated: true)
+        }
+    }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let pickedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
