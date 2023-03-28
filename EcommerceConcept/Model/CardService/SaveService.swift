@@ -166,4 +166,26 @@ class SaveService: MyCardSaverProtocol {
             print(error)
         }
     }
+    
+
+    func saveDeliveryAddress(address: AddressModel) {
+        do {
+            let data = try encoder.encode(address)
+            UserDefaults.standard.set(data, forKey: "deliveryAddress")
+        } catch {
+           print(error)
+        }
+    }
+    
+    func getDeliveryAddress() -> AddressModel? {
+        guard let data = UserDefaults.standard.data(forKey: "deliveryAddress") else {
+            return nil
+        }
+        do {
+            return try decoder.decode(AddressModel.self, from: data)
+        } catch {
+            print(error)
+            return nil
+        }
+    }
 }

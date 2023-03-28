@@ -72,7 +72,7 @@ class MyCartView: UIView {
         addSubview(tableView)
         
         NSLayoutConstraint.activate([
-            myCardLable.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
+            myCardLable.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 8),
             myCardLable.leftAnchor.constraint(equalTo: leftAnchor, constant: 20),
             
             blueBottomView.topAnchor.constraint(equalTo: myCardLable.bottomAnchor, constant: 20),

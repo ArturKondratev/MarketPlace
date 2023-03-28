@@ -58,7 +58,7 @@ class MyCartViewModel {
     }
     
     func didTapLocationButton() {
-        let mapVC = MapViewController()
+        let mapVC = AddressViewController()
         viewController?.navigationController?.pushViewController(mapVC, animated: true)
     }
 }

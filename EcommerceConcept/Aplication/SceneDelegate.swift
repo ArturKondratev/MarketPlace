@@ -21,6 +21,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let mainSceneVC = MainScenBuilder.build()
         navController = UINavigationController(rootViewController: mainSceneVC)
         
+//        let pdVC = AddressViewController()
+//        navController = UINavigationController(rootViewController: pdVC)
+        
         self.window!.rootViewController = navController
         self.window?.makeKeyAndVisible()
     }

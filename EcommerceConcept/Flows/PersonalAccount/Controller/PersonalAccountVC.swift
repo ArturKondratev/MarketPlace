@@ -81,15 +81,25 @@ extension PersonalAccountVC: UITableViewDelegate, UITableViewDataSource {
 //MARK: - PersonalAccountHeaderViewProtocol
 extension PersonalAccountVC: PersonalAccountHeaderViewProtocol {
     func didTabAvatar(sender: UITapGestureRecognizer) {
+        let photoImage = UIImage(systemName: "photo.on.rectangle.angled")
+        let cameraImage = UIImage(systemName: "camera")
+        
         let alert = UIAlertController(title: "Select image",
                                       message: nil,
                                       preferredStyle: .actionSheet)
+        
         let actionPhoto = UIAlertAction(title: "Gallery", style: .default) { alert in
             self.chooseImagePicker(source: .photoLibrary)
         }
+        actionPhoto.setValue(photoImage, forKey: "image")
+        actionPhoto.setValue(CATextLayerAlignmentMode.left, forKey: "titleTextAlignment")
+        
         let actionCamera = UIAlertAction(title: "Camera", style: .default) { alert in
             self.chooseImagePicker(source: .camera)
         }
+        actionCamera.setValue(cameraImage, forKey: "image")
+        actionCamera.setValue(CATextLayerAlignmentMode.left, forKey: "titleTextAlignment")
+
         let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.addAction(actionPhoto)
         alert.addAction(actionCamera)

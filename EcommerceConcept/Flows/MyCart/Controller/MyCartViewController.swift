@@ -22,6 +22,7 @@ class MyCartViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     weak var viewController: UIViewController?
+    var saveService = SaveService()
     
     // MARK: - Private Properties
     private var myCardView: MyCartView {
@@ -55,6 +56,7 @@ class MyCartViewController: UIViewController, UITableViewDataSource, UITableView
     
     override func viewWillAppear(_ animated: Bool) {
         viewModel.loadData()
+        configureNavBar()
     }
     
     // MARK: - Private methods
@@ -143,12 +145,19 @@ extension MyCartViewController {
             return button
         }()
         
+        let address = saveService.getDeliveryAddress()
+        
         let addAddressButton: UIButton = {
             let button = UIButton(type: .system)
-            button.setTitle("Add address", for: .normal)
             button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 19)
+            button.titleLabel?.adjustsFontSizeToFitWidth = true
             button.tintColor = .brandDarkBlue
             button.addTarget(self, action: #selector(tapLocationButtonAction), for: .touchUpInside)
+            if let address = address {
+                button.setTitle("\(address.street), \(address.hous)", for: .normal)
+            } else {
+                button.setTitle("Add address", for: .normal)
+            }
             return button
         }()
         

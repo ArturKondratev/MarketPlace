@@ -1,25 +1,25 @@
 //
-//  FavoriteView.swift
+//  AddressView.swift
 //  EcommerceConcept
 //
-//  Created by Артур Кондратьев on 01.03.2023.
+//  Created by Артур Кондратьев on 26.03.2023.
 //
 
 import UIKit
 
-class FavoriteView: UIView {
-    
+class AddressView: UIView {
+
     // MARK: - SubView
-    lazy var favoriteLable: UILabel = {
+    lazy var deliveryAddressLable: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .brandDarkBlue
-        label.text = "Favorite"
+        label.text = "Delivery address"
         label.font = UIFont.monospacedDigitSystemFont(ofSize: 32, weight: .heavy)
         label.adjustsFontSizeToFitWidth = true
         return label
     }()
-    
+        
     lazy var blueBottomView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -40,7 +40,9 @@ class FavoriteView: UIView {
         tableView.showsHorizontalScrollIndicator = false
         tableView.showsVerticalScrollIndicator = false
         tableView.backgroundColor = .brandDarkBlue
-        tableView.register(FavoriteViewCell.self, forCellReuseIdentifier: FavoriteViewCell.identifier)
+        tableView.rowHeight = UITableView.automaticDimension
+
+        tableView.register(AddressTableViewCell.self, forCellReuseIdentifier: AddressTableViewCell.identifier)
         return tableView
     }()
     
@@ -58,15 +60,16 @@ class FavoriteView: UIView {
     // MARK: - UI
     func addViews() {
         backgroundColor = .mainBackgroundColor
-        self.addSubview(favoriteLable)
+        self.addSubview(deliveryAddressLable)
         self.addSubview(blueBottomView)
         self.addSubview(tableView)
         
         NSLayoutConstraint.activate([
-            favoriteLable.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 8),
-            favoriteLable.leftAnchor.constraint(equalTo: leftAnchor, constant: 20),
+            deliveryAddressLable.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 8),
+            deliveryAddressLable.leftAnchor.constraint(equalTo: leftAnchor, constant: 20),
+            deliveryAddressLable.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
             
-            blueBottomView.topAnchor.constraint(equalTo: favoriteLable.bottomAnchor, constant: 20),
+            blueBottomView.topAnchor.constraint(equalTo: deliveryAddressLable.bottomAnchor, constant: 8),
             blueBottomView.leftAnchor.constraint(equalTo: leftAnchor),
             blueBottomView.rightAnchor.constraint(equalTo: rightAnchor),
             blueBottomView.bottomAnchor.constraint(equalTo: bottomAnchor),

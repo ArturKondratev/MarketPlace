@@ -12,6 +12,9 @@
 		4803E020296B024600D2DECF /* HotSalesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4803E01F296B024600D2DECF /* HotSalesViewCell.swift */; };
 		4803E024296B0FD900D2DECF /* SelectCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4803E023296B0FD900D2DECF /* SelectCategoryView.swift */; };
 		4803E026296B152900D2DECF /* BestSellerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4803E025296B152900D2DECF /* BestSellerCollectionViewCell.swift */; };
+		4813CC0A29D039BF0025BCD9 /* AddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4813CC0929D039BF0025BCD9 /* AddressViewController.swift */; };
+		4813CC0C29D039D30025BCD9 /* AddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4813CC0B29D039D30025BCD9 /* AddressView.swift */; };
+		4813CC0E29D03AEF0025BCD9 /* AddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4813CC0D29D03AEF0025BCD9 /* AddressTableViewCell.swift */; };
 		481F23AB2977E3CA0074F7C9 /* MyCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481F23AA2977E3CA0074F7C9 /* MyCartView.swift */; };
 		481F23AD2977FEEB0074F7C9 /* MyCartViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481F23AC2977FEEB0074F7C9 /* MyCartViewCell.swift */; };
 		4824946A297850B900085855 /* BadgeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48249469297850B900085855 /* BadgeButton.swift */; };
@@ -80,6 +83,9 @@
 		4803E01F296B024600D2DECF /* HotSalesViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotSalesViewCell.swift; sourceTree = "<group>"; };
 		4803E023296B0FD900D2DECF /* SelectCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCategoryView.swift; sourceTree = "<group>"; };
 		4803E025296B152900D2DECF /* BestSellerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestSellerCollectionViewCell.swift; sourceTree = "<group>"; };
+		4813CC0929D039BF0025BCD9 /* AddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressViewController.swift; sourceTree = "<group>"; };
+		4813CC0B29D039D30025BCD9 /* AddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressView.swift; sourceTree = "<group>"; };
+		4813CC0D29D03AEF0025BCD9 /* AddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressTableViewCell.swift; sourceTree = "<group>"; };
 		481F23AA2977E3CA0074F7C9 /* MyCartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCartView.swift; sourceTree = "<group>"; };
 		481F23AC2977FEEB0074F7C9 /* MyCartViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCartViewCell.swift; sourceTree = "<group>"; };
 		48249469297850B900085855 /* BadgeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeButton.swift; sourceTree = "<group>"; };
@@ -166,6 +172,16 @@
 				4803E025296B152900D2DECF /* BestSellerCollectionViewCell.swift */,
 			);
 			name = Cell;
+			sourceTree = "<group>";
+		};
+		4813CC0829D0398F0025BCD9 /* AddressViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4813CC0929D039BF0025BCD9 /* AddressViewController.swift */,
+				4813CC0B29D039D30025BCD9 /* AddressView.swift */,
+				4813CC0D29D03AEF0025BCD9 /* AddressTableViewCell.swift */,
+			);
+			path = AddressViewController;
 			sourceTree = "<group>";
 		};
 		48141B2729B8BD7F005D9D90 /* Cell */ = {
@@ -551,9 +567,10 @@
 				484F86CB296FECA7007F51E0 /* ProductDetails */,
 				487D503329B51A3D0083D2DB /* FullScreenVC */,
 				484F86CC296FF0CD007F51E0 /* MyCart */,
-				483A190A29B20096007BF601 /* MapViewController */,
 				48D42EE629AF7D3100D6F6DF /* FavoriteVC */,
 				483313FB29AF36370053475C /* PersonalAccount */,
+				483A190A29B20096007BF601 /* MapViewController */,
+				4813CC0829D0398F0025BCD9 /* AddressViewController */,
 				48E6410129AE3A35007D61B2 /* MenuVC */,
 			);
 			path = Flows;
@@ -727,7 +744,9 @@
 				481F23AB2977E3CA0074F7C9 /* MyCartView.swift in Sources */,
 				4846D88D297688DA00AE4AB7 /* ScreenShotsViewController.swift in Sources */,
 				4846D8932976A5F700AE4AB7 /* SelectViewController.swift in Sources */,
+				4813CC0E29D03AEF0025BCD9 /* AddressTableViewCell.swift in Sources */,
 				4846D8812976804300AE4AB7 /* ScreenShotsView.swift in Sources */,
+				4813CC0C29D039D30025BCD9 /* AddressView.swift in Sources */,
 				4846D8892976872B00AE4AB7 /* DetailsMainView.swift in Sources */,
 				4884CAA729758CF60031865F /* ScreenshotsCell.swift in Sources */,
 				484CD2EF296DA79500487894 /* BestSellerViewController.swift in Sources */,
@@ -769,6 +788,7 @@
 				488028C629797E5300BDAB60 /* ProductModel.swift in Sources */,
 				484CD2F1296DB19700487894 /* MainScenView.swift in Sources */,
 				48289364297926CC00855FF1 /* MyCardFooterView.swift in Sources */,
+				4813CC0A29D039BF0025BCD9 /* AddressViewController.swift in Sources */,
 				48735FA9297D4C610022E924 /* MyCartViewModel.swift in Sources */,
 				48D42EDE29AF46CB00D6F6DF /* PersonalAccTableViewCell.swift in Sources */,
 				483313FF29AF36A20053475C /* PersonalAccountHeaderView.swift in Sources */,
